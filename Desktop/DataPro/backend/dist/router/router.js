@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const economicController_1 = require("../controller/economicController");
+const multer_1 = require("../utils/multer");
+const router = (0, express_1.Router)();
+router.route("/create-economic").post(multer_1.fileUpload, economicController_1.createData);
+router.route("/create-population").post(multer_1.fileUpload, economicController_1.createPopulationData);
+router.route("/create-migrant").post(multer_1.fileUpload, economicController_1.createMigrantData);
+router.route("/read-economic").get(economicController_1.readEconomicData);
+router.route("/read-population").get(economicController_1.readPopulationData);
+router.route("/read-migrant").get(economicController_1.readMigrantData);
+exports.default = router;
